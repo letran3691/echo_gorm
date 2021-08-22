@@ -1,0 +1,11 @@
+{{define "Convert"}}
+    {{template "Header"}}
+    {{template "Menu"}}
+    <h2>FORM CONVERT</h2>
+    <form method="post", action="/convert">
+        <label>Link</label> <input type="text" name="uri"><br/>
+        <input type="submit" value="convert"/>
+
+    </form>
+    {{template "Footer"}}
+{{end}}

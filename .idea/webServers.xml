@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0eb152c2-cbd2-4cbf-a59a-9ece3c2bd790" name="111">
+        <fileTransfer rootFolder="/home/trunglv/echo_gorm" accessType="SFTP" host="10.10.0.111" port="22" sshConfigId="67c2ab6a-9897-45c8-ac59-a5f03f2b4916" sshConfig="trunglv@10.10.0.111:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

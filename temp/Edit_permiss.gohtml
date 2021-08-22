@@ -1,0 +1,38 @@
+{{ define "Edit" }}
+    {{ template "Header" }}
+    {{ template "Menu" }}
+    {{ .Role_name }}
+    <h2>Edit Name and City</h2>
+    <form method="POST" action="permiss?id={{.Id}}">
+        <input type="checkbox" id="vehdsdicle1" name="role" value="admin"
+
+        >
+        <label for="all">Admin</label><br>
+
+
+        <input type="checkbox" id="vehicle3" name="role" value="add"
+
+        >
+        <label for="add">Add</label><br>
+
+
+        <input type="checkbox" id="vehicle2" name="role" value="edit"
+
+        >
+        <label for="edit">Edit</label><br>
+
+
+        <input type="checkbox" id="vehicle3" name="role" value="read"
+        >
+        <label for="read">Read</label><br>
+
+
+        <input type="checkbox" id="vehicle3" name="role" value="delete"
+
+        >
+        <label for="delete">Delete</label><br>
+
+        <input type="submit" value="Save" />
+    </form><br />
+    {{ template "Footer" }}
+{{ end }}

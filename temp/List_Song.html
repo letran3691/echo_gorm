@@ -1,0 +1,30 @@
+{{ define "ListSong" }}
+    {{ template "Header" }}
+    {{ template "Menu"  }}
+{{/*        {{ printf "%#v" . }}*/}}
+
+
+    <h2> List Song </h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Name Song</td>
+{{/*            <td>Path</td>*/}}
+            <td>Download</td>
+        </tr>
+        </thead>
+        <tbody>
+        {{ range . }}
+            <tr>
+                <td> {{ .Id }} </td>
+                <td> {{ .Name_Song }} </td>
+{{/*                                <td>{{ .Path }} </td>*/}}
+{{/*                                <td><a href="/delete?id={{ .Id }}">Download</a><td>*/}}
+                <td><a href="/download?id={{ .Id }}">Download</a></td>
+            </tr>
+        {{ end }}
+        </tbody>
+    </table>
+    {{ template "Footer" }}
+{{ end }}
