@@ -11,6 +11,7 @@ spec:
   tls:
   - hosts:
     - trunglv.xxx.com.vn
+    # create secret file ssl
     secretName: trunglv.xxx.com.vn-cert
   rules:
   - host: trunglv.xxx.com.vn
