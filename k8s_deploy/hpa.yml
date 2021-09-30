@@ -1,0 +1,13 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa-go-web-app
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: go-web-app
+  minReplicas: 1
+  maxReplicas: 3
+  # Thực hiện scale CPU hoạt động ở 50% so với CPU mà POD yêu cầu
+  targetCPUUtilizationPercentage: 10

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-web-app
+spec:
+  selector:
+    matchLabels:
+      app: go-web-app
+  template:
+    metadata:
+      labels:
+        app: go-web-app
+    spec:
+      volumes:
+        - name: myvolume
+          persistentVolumeClaim:
+            claimName: pvc-go
+
+      containers:
+      
+      - name: application
+        image: golang:1.17
+        command: ["/bin/sh", "-c"]
+        args:
+          - echo "deb http://ftp.uk.debian.org/debian jessie-backports main >>/etc/apt/sources.list";
+            apt-get -y update;
+            apt-get -y install ffmpeg;
+            cd /pv && go build -o main .;
+            cd /pv && cp youtube-dl /usr/local/bin;
+            chmod a+rx /usr/local/bin/youtube-dl;
+            /pv/main;
+
+
+        resources: {}
+          # requests:
+          #   cpu: "100m"
+          #   memory: "100Mi"
+          # limits:
+          #   cpu: "100m"
+          #   memory: "100Mi"
+
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+          - mountPath: /pv
+            name: myvolume

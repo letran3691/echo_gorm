@@ -1,7 +1,6 @@
 package modle
 
 import (
-	"github.com/dgrijalva/jwt-go"
 	_ "github.com/qor/validations"
 )
 
@@ -11,7 +10,7 @@ type User struct {
 	Password string
 	Email string `json:"email"`
 	RoleID int64
-	jwt.StandardClaims
+	//jwt.StandardClaims
 }
 
 

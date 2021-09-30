@@ -2,17 +2,18 @@ package handle
 
 import (
 	"echo_gorm/modle"
+	"log"
+	"net/http"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/labstack/echo/v4"
-	"log"
-	"net/http"
 )
 
 func Connect() *gorm.DB {
 	db, err := gorm.Open(
 		"mysql",
-		"root:123456@tcp(10.10.0.111:3306)/User_Permiss?charset=utf8mb4&parseTime=True&loc=Local",
+		"trunglv:123456@tcp(10.10.0.13:3306)/user_permiss?charset=utf8mb4&parseTime=True&loc=Local",
 	)
 	if err != nil {
 		panic(err.Error())
@@ -20,8 +21,7 @@ func Connect() *gorm.DB {
 	return db
 }
 
-
-func Get(c echo.Context) error  {
+func Get(c echo.Context) error {
 	db := Connect()
 	db.LogMode(true)
 
@@ -30,18 +30,14 @@ func Get(c echo.Context) error  {
 		Id: Id,
 	}
 	db.Find(&user)
-	log.Printf("ID %v",user)
+	log.Printf("ID %v", user)
 
-	return c.Render(http.StatusOK,"Permiss",user)
+	return c.Render(http.StatusOK, "Permiss", user)
 
 }
 
-
-
-func Handlemigrate()  {
+func Handlemigrate() {
 	db := Connect()
-	db.AutoMigrate(modle.User{}).AddForeignKey("role_id","roles(id)","RESTRICT","RESTRICT")
-	db.AutoMigrate(modle.Role{},modle.List_Song{})
+	db.AutoMigrate(modle.User{}).AddForeignKey("role_id", "roles(id)", "RESTRICT", "RESTRICT")
+	db.AutoMigrate(modle.Role{}, modle.List_Song{})
 }
-
-
