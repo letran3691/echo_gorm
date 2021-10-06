@@ -6,7 +6,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/letran3691/echo_gorm.gi'
+        git 'https://github.com/letran3691/echo_gorm.git'
       }
     }
     stage('Deploy App') {
