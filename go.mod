@@ -19,5 +19,6 @@ require (
 	github.com/qor/qor v0.0.0-20200729071734-d587cffbbb93 // indirect
 	github.com/qor/validations v0.0.0-20171228122639-f364bca61b46
 	github.com/spf13/cast v1.3.1
+	github.com/tidwall/gjson v1.9.2 // indirect
 	golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2
 )
