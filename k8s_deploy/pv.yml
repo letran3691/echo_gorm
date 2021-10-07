@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv_go
+  name: pv-go
 spec:
   storageClassName: local-storage
   capacity:
