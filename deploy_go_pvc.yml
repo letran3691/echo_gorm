@@ -47,17 +47,3 @@ spec:
           - mountPath: /pv
             name: myvolume
 
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: go-web-service
-spec:
-   type: NodePort
-  selector:
-    app: go-web-app
-  ports:
-    - port: 80
-      targetPort: 8000
-      protocol: TCP
