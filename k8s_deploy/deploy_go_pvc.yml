@@ -24,12 +24,13 @@ spec:
             - echo "deb http://ftp.uk.debian.org/debian jessie-backports main >>/etc/apt/sources.list";
               apt-get -y update;
               apt-get -y install ffmpeg;
-              mkdir /pv
-              cd /pv && git clone https://github.com/letran3691/echo_gorm.git
-              cd /pv && go build -o main .;
-              cd /pv && cp youtube-dl /usr/local/bin;
+              mkdir /pv;
+              cd /pv && git pull https://github.com/letran3691/echo_gorm.git;
+              ls -al;
+              cd /pv/echo_gorm && go build -o main .;
+              cd /pv/echo_gorm && cp youtube-dl /usr/local/bin;
               chmod a+rx /usr/local/bin/youtube-dl;
-              /pv/main;
+              /pv/echo_gorm/main;
 
 
           resources: {}
@@ -45,3 +46,18 @@ spec:
           volumeMounts:
             - mountPath: /pv
               name: myvolume
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-web-service
+spec:
+  type: NodePort
+  selector:
+    app: go-web-app
+  ports:
+    - port: 80
+      targetPort: 8000
+      protocol: TCP

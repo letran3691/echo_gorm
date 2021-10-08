@@ -54,7 +54,7 @@ kind: Service
 metadata:
   name: go-web-service
 spec:
-  # type: NodePort
+   type: NodePort
   selector:
     app: go-web-app
   ports:
