@@ -42,6 +42,15 @@ spec:
           #   memory: "100Mi"
           ports:
             - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+
 
           volumeMounts:
             - mountPath: /pv
