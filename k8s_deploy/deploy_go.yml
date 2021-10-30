@@ -32,11 +32,13 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: http
+            port: 8000
+          initialDelaySeconds: 60
+          periodSeconds: 60
         readinessProbe:
           httpGet:
             path: /
-            port: http
+            port: 8000
 
 
         volumeMounts:
